@@ -1,168 +1,294 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moras - Soluções Digitais</title>
-    
-    <link rel="icon" type="image/png" href="logo.ico.webp">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="curso.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Moras • Soluções Digitais</title>
+  <meta name="description" content="Conserto de celulares, venda de usados, criação de sites e anúncios profissionais em Analândia-SP."/>
+  
+  <link rel="icon" type="image/webp" href="logo.ico.webp"/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="background-animation"></div>
+  <div class="particles layer-1">
+    <span style="--i:1;"></span><span style="--i:2;"></span><span style="--i:3;"></span>
+    <span style="--i:4;"></span><span style="--i:5;"></span><span style="--i:6;"></span>
+    <span style="--i:7;"></span><span style="--i:8;"></span><span style="--i:9;"></span>
+    <span style="--i:10;"></span><span style="--i:11;"></span><span style="--i:12;"></span>
+    <span style="--i:13;"></span><span style="--i:14;"></span><span style="--i:15;"></span>
+  </div>
+  <div class="particles layer-2">
+    <span style="--i:1;"></span><span style="--i:2;"></span><span style="--i:3;"></span>
+    <span style="--i:4;"></span><span style="--i:5;"></span><span style="--i:6;"></span>
+    <span style="--i:7;"></span><span style="--i:8;"></span>
+  </div>
+  <div class="particles layer-3">
+    <span style="--i:1;"></span><span style="--i:2;"></span><span style="--i:3;"></span>
+    <span style="--i:4;"></span><span style="--i:5;"></span> </div>
 
-   <header>
+  <a href="https://wa.me/5519999112173" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <header id="header">
     <div class="logo">
-        <img src="logo.ico.webp" alt="Logo Moras">
-        <h1>MORAS</h1>
+      <img src="logo.ico.webp" alt="Moras Logo" onerror="this.style.display='none'"/>
+      <h1>MORAS</h1>
     </div>
-    <nav class="top-nav">
-        <button onclick="navegarPara('menu-principal')" id="btn-inicio" class="nav-link active">Início</button>
-        <button onclick="navegarPara('tela-sobre')" id="btn-sobre" class="nav-link">Sobre a Loja</button>
+    <nav>
+      <button class="active" onclick="showScreen('home')">Início</button>
+      <button onclick="showScreen('sobre')">Sobre</button>
     </nav>
-</header>
+  </header>
 
-    <main id="menu-principal" class="screen active">
-        <div class="intro">
-            <h2>Bem-vindo</h2>
-            <p>O que você precisa hoje?</p>
+  <div class="screens-container">
+    <section id="home" class="screen active">
+      <div id="hero">
+        <div class="hero-content">
+          <h1 class="hero-title" data-aos="fade-up">
+            <span class="typewriter">Tecnologia que resolve</span>
+          </h1>
+          <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="600">
+            Conserto rápido • Venda honesta • Sites que vendem • Anúncios que convertem
+          </p>
+        <button class="btn-primary" id="btnExplorar" onclick="scrollToServices()" data-aos="zoom-in" data-aos-delay="1000">
+        <i class="fa-solid fa-sparkles"></i> Explorar Serviços
+        </button>
+          </button>
         </div>
+      </div>
 
-        <div class="menu-grid">
-            <div class="menu-card delay-1" onclick="navegarPara('tela-conserto')">
-                <div class="icon-box"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                <h3>Consertar Celular</h3>
-                <p>Quebrou? A gente arruma.</p>
-            </div>
+      <div class="services" id="servicos">
+        <h2 class="section-title" data-aos="fade-down">Nossos Serviços</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="300">
+          Soluções completas para o seu dia a dia digital
+        </p>
 
-            <div class="menu-card delay-2" onclick="navegarPara('tela-venda')">
-                <div class="icon-box"><i class="fa-solid fa-hand-holding-dollar"></i></div>
-                <h3>Vender meu Celular</h3>
-                <p>Transforme seu usado em dinheiro.</p>
-            </div>
+        <div class="cards-grid">
+          <div class="card" onclick="showScreen('conserto')" data-aos="flip-left" data-aos-delay="100">
+            <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+            <h3>Consertar Celular</h3>
+            <p>Reparos rápidos, peças de qualidade e garantia total.</p>
+          </div>
 
-            <div class="menu-card delay-3" onclick="navegarPara('tela-sites')">
-                <div class="icon-box"><i class="fa-solid fa-code"></i></div>
-                <h3>Quero um Site</h3>
-                <p>Sites e Lojas Virtuais.</p>
-            </div>
+          <div class="card" onclick="showScreen('venda')" data-aos="flip-left" data-aos-delay="300">
+            <div class="card-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+            <h3>Vender meu Celular</h3>
+            <p>Avaliação honesta e pagamento imediato.</p>
+          </div>
+
+          <div class="card" onclick="showScreen('sites')" data-aos="flip-left" data-aos-delay="500">
+            <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+            <h3>Quero um Site</h3>
+            <p>Sites modernos que vendem 24h por dia.</p>
+          </div>
+
+          <div class="card" onclick="showScreen('anuncio')" data-aos="flip-left" data-aos-delay="700">
+            <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3>Quero Fazer um Anúncio</h3>
+            <p>Post ou vídeo que realmente chama atenção.</p>
+          </div>
         </div>
-    </main>
+      </div>
 
-    <section id="tela-sobre" class="screen hidden">
-        <div class="form-container sobre-container conteudo-animado">
-            <h2>Conectando Tecnologia</h2>
-            <p class="destaque-texto">De Analândia para o mundo digital.</p>
-            
-            <div class="texto-sobre">
-                <p>A <strong>Moras</strong> nasceu com uma missão simples: resolver problemas. Seja aquele celular que parou de funcionar na hora errada ou a necessidade de colocar sua empresa na internet.</p>
-                
-                <hr>
-                
-                <p class="item-lista"><i class="fa-solid fa-check"></i> <strong>Manutenção Especializada:</strong> Troca de telas, baterias e reparos avançados com garantia.</p>
-                <p class="item-lista"><i class="fa-solid fa-check"></i> <strong>Criação de Sites:</strong> Desenvolvemos a vitrine virtual do seu negócio.</p>
-                
-                <hr>
-                
-                <p class="frase-final">Estamos prontos para atender você com agilidade e transparência.</p>
-            </div>
+      <div class="why-choose">
+        <h2 class="section-title" data-aos="fade-down">Por que escolher a Moras?</h2>
+        <div class="features-grid">
+          <div class="feature" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-medal"></i>
+            <h4>Segurança em todos os serviços</h4>
+            <p>Tranquilidade total para você</p>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-bolt"></i>
+            <h4>Atendimento rápido</h4>
+            <p>Orçamento no mesmo dia</p>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="500">
+            <i class="fa-solid fa-thumbs-up"></i>
+            <h4>Transparência total</h4>
+            <p>Sem surpresas no preço</p>
+          </div>
+          <div class="feature" data-aos="fade-up" data-aos-delay="700">
+            <i class="fa-solid fa-location-dot"></i>
+            <h4>Atendimento local</h4>
+            <p>Analândia-SP com carinho</p>
+          </div>
         </div>
+      </div>
+
+      <div class="testimonials">
+        <h2 class="section-title" data-aos="fade-down">O que nossos clientes dizem</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+            <p>"Conserto perfeito e rápido! Recomendo."</p>
+            <strong>— João S.</strong>
+          </div>
+          <div class="testimonial" data-aos="fade-up" data-aos-delay="300">
+            <p>"Meu site ficou lindo e já trouxe clientes!"</p>
+            <strong>— Maria L.</strong>
+          </div>
+          <div class="testimonial" data-aos="fade-up" data-aos-delay="500">
+            <p>"Venda do meu celular foi justa e rápida."</p>
+            <strong>— Pedro R.</strong>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="tela-conserto" class="screen hidden">
-        <button class="btn-voltar" onclick="navegarPara('menu-principal')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
-        <div class="form-container">
-            <h2>Solicitar Conserto</h2>
-            <p>Descreva o problema e receba um orçamento.</p>
-            <form id="formConserto">
-                <div class="input-box anim-item" style="--i:1">
-                    <label>Seu Nome</label>
-                    <input type="text" id="nomeConserto" required placeholder="Digite seu nome">
-                </div>
-                <div class="input-box anim-item" style="--i:2">
-                    <label>Modelo do Celular</label>
-                    <input type="text" id="modeloConserto" required placeholder="Ex: iPhone 11">
-                </div>
-                <div class="input-box anim-item" style="--i:3">
-                    <label>O que aconteceu?</label>
-                    <textarea id="problemaConserto" required placeholder="Ex: Caiu e trincou a tela..."></textarea>
-                </div>
-                <button type="submit" class="btn-action anim-item" style="--i:4">Pedir Orçamento</button>
-            </form>
-        </div>
-    </section>
+    <section id="sobre" class="screen">
+      <div class="form-wrapper" data-aos="fade-up">
+        <button class="back-btn" onclick="showScreen('home')">
+          <i class="fa-solid fa-arrow-left"></i> Voltar
+        </button>
+        <h2 class="form-title">Sobre a Moras</h2>
+        <p class="form-subtitle">Mais do que serviços — soluções reais</p>
 
-    <section id="tela-venda" class="screen hidden">
-        <button class="btn-voltar" onclick="navegarPara('menu-principal')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
-        <div class="form-container">
-            <h2>Vender Aparelho</h2>
-            <p>Avaliamos seu celular usado.</p>
-            <form id="formVenda">
-                <div class="input-box anim-item" style="--i:1">
-                    <label>Modelo do Aparelho</label>
-                    <input type="text" id="modeloVenda" required placeholder="Ex: Moto G20">
-                </div>
-                <div class="input-box anim-item" style="--i:2">
-                    <label>Quanto quer pedir? (R$)</label>
-                    <input type="number" id="valorVenda" required placeholder="0,00">
-                </div>
-                <div class="input-box anim-item" style="--i:3">
-                    <label>Estado do aparelho</label>
-                    <select id="estadoVenda" required>
-                        <option value="Novo">Novo (Lacrado)</option>
-                        <option value="Seminovo">Seminovo (Sem detalhes)</option>
-                        <option value="Usado">Usado (Marcas de uso)</option>
-                        <option value="Com Defeito">Com Defeito (Peças)</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn-action anim-item" style="--i:4">Oferecer Aparelho</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="tela-sites" class="screen hidden">
-        <button class="btn-voltar" onclick="navegarPara('menu-principal')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
-        <div class="form-container">
-            <h2>Criação de Sites</h2>
-            <p>Qual tipo de projeto você tem em mente?</p>
-            <form id="formSite">
-                <div class="input-box anim-item" style="--i:1">
-                    <label>Nome do Projeto</label>
-                    <input type="text" id="nomeEmpresa" required placeholder="Ex: Pizzaria do Zé">
-                </div>
-                <div class="input-box anim-item" style="--i:2">
-                    <label>Tipo de Site</label>
-                    <select id="tipoSite" required>
-                        <option value="Site Simples">Site de Apresentação</option>
-                        <option value="Mini Loja">Mini Loja Virtual</option>
-                        <option value="Outro">Outro / Personalizado</option>
-                    </select>
-                </div>
-                <div class="input-box anim-item" style="--i:3">
-                    <label>Detalhes (Opcional)</label>
-                    <textarea id="detalhesSite" placeholder="Ex: Quero um botão de zap..."></textarea>
-                </div>
-                <button type="submit" class="btn-action anim-item" style="--i:4">Solicitar Orçamento</button>
-            </form>
-        </div>
-    </section>
-<footer>
-        <div class="footer-content">
-            <div class="footer-contact">
-                <p><i class="fa-brands fa-whatsapp"></i> (19) 9 9911-2173</p>
-                <p><i class="fa-solid fa-location-dot"></i> Analândia - SP</p>
+        <div class="sobre-texto">
+          <p data-aos="fade-up" data-aos-delay="200">Nascemos em Analândia-SP com uma missão: tornar a tecnologia simples e acessível para todos.</p>
+          <p data-aos="fade-up" data-aos-delay="400">Do conserto urgente ao site que coloca seu negócio no mapa, estamos aqui para ajudar.</p>
+          
+          <div class="timeline" data-aos="fade-up" data-aos-delay="600">
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="100">
+              <i class="fa-solid fa-wrench"></i>
+              <p>Reparos para celular</p>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Moras Soluções Digitais.</p>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="200">
+              <i class="fa-solid fa-dollar-sign"></i>
+              <p>Venda transparente de aparelhos</p>
             </div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="300">
+              <i class="fa-solid fa-globe"></i>
+              <p>Sites otimizados para resultados</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-right" data-aos-delay="400">
+              <i class="fa-solid fa-video"></i>
+              <p>Anúncios que realmente funcionam</p>
+            </div>
+          </div>
+          <p class="destaque" data-aos="zoom-in" data-aos-delay="800">Pronto para começar?</p>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    </footer>
+    <section id="conserto" class="screen">
+      <div class="form-wrapper" data-aos="fade-up">
+        <button class="back-btn" onclick="showScreen('home')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+        <h2 class="form-title">Solicitar Conserto</h2>
+        <p class="form-subtitle">Diagnóstico gratuito e orçamento rápido</p>
+        <form id="formConserto">
+          <div class="form-group" data-aos="slide-right" data-aos-delay="100"><label>Seu Nome</label><input type="text" id="nomeConserto" required></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="200"><label>Modelo do Aparelho</label><input type="text" id="modeloConserto" required></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="300"><label>Problema</label><textarea id="problemaConserto" required></textarea></div>
+          <button type="submit" class="submit-btn" data-aos="zoom-in" data-aos-delay="400">Enviar no WhatsApp</button>
+        </form>
+      </div>
+    </section>
 
-    <script src="curso.js"></script>
+    <section id="venda" class="screen">
+      <div class="form-wrapper" data-aos="fade-up">
+        <button class="back-btn" onclick="showScreen('home')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+        <h2 class="form-title">Vender seu Celular</h2>
+        <p class="form-subtitle">Avaliação justa e pagamento na hora</p>
+        <form id="formVenda">
+          <div class="form-group" data-aos="slide-right" data-aos-delay="100"><label>Modelo</label><input type="text" id="modeloVenda" required></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="200"><label>Valor desejado (R$)</label><input type="number" id="valorVenda" required></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="300"><label>Estado</label><select id="estadoVenda" required>
+            <option value="">Selecione...</option>
+            <option>Novo</option>
+            <option>Seminovo</option>
+            <option>Usado</option>
+            <option>Com defeito</option>
+          </select></div>
+          <button type="submit" class="submit-btn" data-aos="zoom-in" data-aos-delay="400">Quero uma Proposta</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="sites" class="screen">
+      <div class="form-wrapper" data-aos="fade-up">
+        <button class="back-btn" onclick="showScreen('home')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+        <h2 class="form-title">Criação de Sites</h2>
+        <p class="form-subtitle">Transforme sua ideia em presença digital</p>
+        <form id="formSite">
+          <div class="form-group" data-aos="slide-right" data-aos-delay="100"><label>Nome do Projeto/Empresa</label><input type="text" id="nomeEmpresa" required></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="200"><label>Tipo de Site</label><select id="tipoSite" required>
+            <option value="">Escolha...</option>
+            <option>Apresentação (Institucional)</option>
+            <option>Loja Virtual</option>
+            <option>Blog/Notícias</option>
+            <option>Outro</option>
+          </select></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="300"><label>Plano</label><select id="planoSite" onchange="toggleSemanal(this)" required>
+            <option value="">Escolha...</option>
+            <option value="semanal">Semanal</option>
+            <option>Mensal</option>
+            <option>Trimestral</option>
+            <option>Anual</option>
+          </select></div>
+          <div class="form-group" id="descricao-semanal-container" style="display:none;" data-aos="slide-right"><label>Detalhes (Opcional)</label><textarea id="descricaoSemanal"></textarea></div>
+          
+          <div class="form-group" data-aos="slide-right" data-aos-delay="500"><label>Detalhes adicionais</label><textarea id="detalhesSite"></textarea></div>
+          <button type="submit" class="submit-btn" data-aos="zoom-in" data-aos-delay="600">Solicitar Orçamento</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="anuncio" class="screen">
+      <div class="form-wrapper" data-aos="fade-up">
+        <button class="back-btn" onclick="showScreen('home')"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+        <h2 class="form-title">Criar Anúncio</h2>
+        <p class="form-subtitle">Post ou vídeo que realmente vende</p>
+        <form id="formAnuncio">
+          <div class="form-group" data-aos="slide-right" data-aos-delay="100"><label>Nome / Campanha</label><input type="text" id="nomeAnuncio" required></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="200"><label>Tipo</label><select id="tipoAnuncio" required>
+            <option value="">Escolha...</option>
+            <option value="post">Post (Imagem)</option>
+            <option value="video">Vídeo</option>
+            <option value="post-e-video">Post + Vídeo</option>
+          </select></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="300"><label>Frequência</label><select id="planoAnuncio" required>
+            <option value="">Escolha...</option>
+            <option>Único (Avulso)</option>
+            <option>Pacote Semanal</option>
+            <option>Pacote Mensal</option>
+          </select></div>
+          <div class="form-group" data-aos="slide-right" data-aos-delay="400"><label>Descrição da ideia</label><textarea id="descricaoAnuncio" required></textarea></div>
+          <button type="submit" class="submit-btn" data-aos="zoom-in" data-aos-delay="500">Enviar Solicitação</button>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <footer data-aos="fade-up">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Moras Soluções Digitais</h4>
+        <p>Conserto • Venda • Sites • Anúncios</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <p><i class="fa-brands fa-whatsapp"></i> (19) 99911-2173</p>
+        <p><i class="fa-solid fa-location-dot"></i> Analândia – SP</p>
+      </div>
+      <div class="footer-col">
+        <h4>Horário</h4>
+        <p>Aberto 24h</p>
+
+      </div>
+    </div>
+    <div class="copyright">© 2026 Moras Soluções Digitais</div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
