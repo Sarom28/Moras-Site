@@ -142,31 +142,63 @@ nav button:hover::after, nav button.active::after { width: 100%; }
 
 
 
+/* === TÍTULO E EFEITO DE DIGITAÇÃO (RESPONSIVO) === */
+
 .hero-title {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(2rem, 6vw, 5rem); /* Ajustado tamanho */
+  font-size: clamp(2.5rem, 8vw, 5rem); 
   line-height: 1.2;
   margin-bottom: 1.5rem;
-  display: flex; /* Mudança para centralizar */
+  text-align: center;
+  display: flex;
   justify-content: center;
 }
 
 .typewriter {
   display: inline-block;
-  overflow: hidden; /* Esconde o texto que ainda não apareceu */
-  white-space: nowrap; /* Impede quebra de linha */
-  border-right: 3px solid var(--accent-light); /* O cursor */
+  color: white;
   
-  /* Configuração Inicial */
-  width: 0; 
-  max-width: fit-content;
-  
-  /* Animação simplificada */
-  animation: 
-    typing 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards, 
-    blink 0.75s infinite;
-  
-  animation-delay: 0.2s; /* Pequeno delay */
+  /* --- CONFIGURAÇÃO PADRÃO (MOBILE) --- */
+  /* No celular, permitimos quebrar linha e removemos a animação para não cortar */
+  white-space: normal; 
+  overflow: visible;
+  border: none;
+  width: auto;
+  animation: fade-in-up 1s ease-out forwards; /* Uma animação simples de subir */
+}
+
+/* Animação alternativa para celular (Fade In) */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- CONFIGURAÇÃO APENAS PARA PC (Telas maiores que 768px) --- */
+@media (min-width: 768px) {
+  .typewriter {
+    white-space: nowrap; /* Em PC, força uma linha só */
+    overflow: hidden;    /* Esconde o texto para revelar aos poucos */
+    border-right: 3px solid var(--accent-light); /* Cursor piscando */
+    width: 0;            /* Começa invisível */
+    
+    /* A animação de digitação clássica */
+    animation: 
+      typing 3s steps(30, end) forwards, 
+      blink 0.75s step-end infinite;
+    animation-delay: 0.5s; /* Espera um pouquinho para começar */
+    animation-fill-mode: both;
+  }
+}
+
+/* Animações (Só funcionam no PC por causa do @media acima) */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--accent-light); }
 }
 
 /* Animação de digitação SUAVE (sem steps travados) */
